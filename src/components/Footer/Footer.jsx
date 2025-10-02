@@ -1,6 +1,6 @@
 export const Footer = () => {
     return (
-        <div class="mt-auto glassmorphism border-t-2 border-[#5b13ec]/20 shadow-[0_-5px_25px_-5px_rgba(91,19,236,0.1)] px-9 py-7">
+        <div className="mt-auto glassmorphism border-t-2 border-[#5b13ec]/20 shadow-[0_-5px_25px_-5px_rgba(91,19,236,0.1)] px-9 py-7">
             <div className="flex flex-col sm:grid grid-cols-4 gap-4">
                 <div>
                     <div className="flex gap-3">

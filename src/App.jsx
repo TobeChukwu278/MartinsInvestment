@@ -4,20 +4,24 @@ import Hero from "./components/Hero/Hero"
 import Search from "./components/Search/Search"
 import CategoriesFilter from "./components/CategoriesFilter/CategoriesFilter"
 import Products from "./components/Products/Products"
+import Cart from "./components/Cart/Cart"
 import { Footer } from "./components/Footer/Footer"
 
 const App = () => {
   return (
-    <div className="w-full min-h-screen bg-[#f6f6f8] text-[#161022]  dark:bg-[#161022] dark:text-[#f6f6f8] bg-animated-gradient">
-      {/* <Auth /> */}
-      <Nav />
-      <div className="px-3">
-        <Hero />
-        <Search />
-        <CategoriesFilter />
-        <Products />
+    <div className="w-full min-h-screen bg-[#f6f6f8] text-[#161022]  dark:bg-[#161022] dark:text-[#f6f6f8] bg-animated-gradient flex justify-center">
+      <div>
+        {/* <Auth /> */}
+        <Nav />
+        {/* <div className="px-3">
+          <Hero />
+          <Search />
+          <CategoriesFilter />
+          <Products />
+        </div> */}
+        <Cart />
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
