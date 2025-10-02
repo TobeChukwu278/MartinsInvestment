@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .glass-effect {
+    background: rgba(47, 35, 72, 0.2);
+}
+
+.gradient-bg {
+    background-image: radial-gradient(circle at 10% 10%, #5b13ec40 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, #5b13ec40 0%, transparent 30%);
+}
+
+
+
+
+.gradient-bg {
+    background-image: linear-gradient(120deg,
+            #1a162d 0%,
+            #5b13ec33 50%,
+            #0d0c1b 100%);
+}
+
+.dark .gradient-bg {
+    background-image: linear-gradient(120deg,
+            #1a162d 0%,
+            #5b13ec33 50%,
+            #0d0c1b 100%);
+}
+
+.shadowText {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.backgroundImage {
+    background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBDsEBNI6jFqlcNxts-vnF4Y8ngUWdRmYRDWL5SWFJzG8u2d7x8X-mkw9ETFCGc4zPk27IA_1yIUGxFGOWk6wWlBsLPbmcg4gAOf6mDiv2lLDJc6Fg3xSVrC9We48bM7F_cerq-IUjXCLoef5JJ8YdWBLqYNtoZ9equfOZCFbzZGa1lIVvXcEFBTGdAke-AhmFd_2u5FxyI9jlaN4Kta-PGTAK5Sw4ecrvXlCVE6jIRORXU0wUDmfT5qG3obTHkbpsppMeTnWjw92s");
+}
+
+
+
+.glassmorphism {
+    background: rgba(26, 22, 45, 0.4);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(91, 19, 236, 0.2);
+}
+
+/* .category-button:hover span.material-symbols-outlined {
+    color: #00e5ff;
+    text-shadow: 0 0 8px #00e5ff;
+}
+
+.category-button.active {
+    background-color: #5b13ec;
+    color: white;
+    box-shadow: 0 0 10px #5b13ec, 0 0 20px #5b13ec/70;
+
+} */
