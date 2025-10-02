@@ -8,7 +8,7 @@ import { Footer } from "./components/Footer/Footer"
 
 const App = () => {
   return (
-    <div className="w-full min-h-screen bg-[#f6f6f8] text-[#161022]  dark:bg-[#161022] dark:text-[#f6f6f8]">
+    <div className="w-full min-h-screen bg-[#f6f6f8] text-[#161022]  dark:bg-[#161022] dark:text-[#f6f6f8] bg-animated-gradient">
       {/* <Auth /> */}
       <Nav />
       <div className="px-3">
@@ -18,7 +18,6 @@ const App = () => {
         <Products />
       </div>
       <Footer />
-      {/* <h1>Importing the auth</h1> */}
     </div>
   )
 }

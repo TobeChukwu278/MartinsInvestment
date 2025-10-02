@@ -73,7 +73,7 @@ const Products = () => {
                                 <div className="relative">
                                     <img src={item.productImage} alt={item.productName} className="aspect-square w-full object-cover object-center" />
                                     <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity group-hover:opacity-100"></div>
-                                    <button className="absolute right-3 top-3 bg-white/80 text-slate-700 opacity-0 backdrop-blur-sm transition-all group-hover:opacity-100 dark:bg-slate-900/80 dark:text-slate-300 cursor-pointer"><FaShoppingBasket className="w-10 h-10" /></button>
+                                    <button className="absolute p-2 rounded-4xl right-3 top-3 bg-white/80 text-slate-700 opacity-0 backdrop-blur-sm transition-all group-hover:opacity-100 dark:bg-slate-900/80 dark:text-slate-300 cursor-pointer"><FaShoppingBasket className="w-5 h-5" /></button>
                                 </div>
                                 <div className="p-4">
                                     <h3 className="font-bold text-slate-800 dark:text-slate-100">{item.productName}</h3>

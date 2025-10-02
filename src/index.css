@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+    scroll-behaviour: smooth;
+}
+
 .glass-effect {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -14,6 +18,41 @@
     background-image: radial-gradient(circle at 10% 10%, #5b13ec40 0%, transparent 30%),
         radial-gradient(circle at 90% 80%, #5b13ec40 0%, transparent 30%);
 }
+
+
+
+
+@keyframes gradientMove {
+    0% {
+        background-position: 10% 10%, 90% 89%;
+    }
+
+    25% {
+        background-position: 20% 30%, 80% 70%;
+    }
+
+    50% {
+        background-position: 50% 50%, 50% 50%;
+    }
+
+    75% {
+        background-position: 70% 20%, 30% 80%;
+    }
+
+    100% {
+        background-position: 10% 10%, 90% 89%;
+    }
+}
+
+.bg-animated-gradient {
+    background-image: radial-gradient(circle at 10% 10%, #5b13ec40 0%, transparent 30%),
+        radial-gradient(circle at 90% 80%, #5b13ec40 0%, transparent 30%);
+    background-size: no-repeat;
+    background-size: 200% 200%;
+    animation: gradientMove 12s ease infinite alternate;
+}
+
+
 
 
 
@@ -48,15 +87,3 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(91, 19, 236, 0.2);
 }
-
-/* .category-button:hover span.material-symbols-outlined {
-    color: #00e5ff;
-    text-shadow: 0 0 8px #00e5ff;
-}
-
-.category-button.active {
-    background-color: #5b13ec;
-    color: white;
-    box-shadow: 0 0 10px #5b13ec, 0 0 20px #5b13ec/70;
-
-} */
