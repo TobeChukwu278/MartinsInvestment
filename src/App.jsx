@@ -1,4 +1,4 @@
-import Auth from "./components/auth/Auth"
+import Auth from "./components/Auth/Auth"
 import Nav from "./components/Nav/Nav"
 import Hero from "./components/Hero/Hero"
 import Search from "./components/Search/Search"
@@ -19,17 +19,17 @@ const App = () => {
 
       {/* Main content - relative positioning to follow document flow */}
       <div className="absolute top-0 z-10 w-full">
-        {/* <Auth /> */}
-        <Nav />
-        <div className="px-3">
+        <Auth />
+        {/* <Nav /> */}
+        {/* <div className="px-3">
           <Hero />
           <Search />
           <CategoriesFilter />
           <Products />
-        </div>
+        </div> */}
         {/* <Cart /> */}
         {/* <Account /> */}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   )
