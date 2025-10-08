@@ -1,7 +1,12 @@
 const express = require('express');
+const { ExpressAuth } = require("@auth/express");
 const { auth } = require('@auth/core');
-const GoogleProvider = require('@auth/core/providers/google');
-const CredentialProvider = require('@auth/core/providers/credentials');
+// FIX: Correctly access the default export for the provider function
+const GoogleProvider = require("@auth/express/providers/google").default;
+// The value 'Google' from the original import still works for the ExpressAuth provider array
+const Google = require("@auth/express/providers/google");
+// const Credentials = require("@auth/express/providers/credentials");
+const CredentialsProvider = require('@auth/core/providers/credentials').default;
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 const { PrismaClient } = require('@prisma/client');
@@ -11,17 +16,20 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
+// Note: Google is used here, which is often an object containing the provider configuration
+app.use("/auth", ExpressAuth({ providers: [Google] }))
 
 
 // login route
-app.use('/api/auth/*', auth({
+app.use('/api/auth', ExpressAuth({
     providers: [
+        // FIX: Use the imported GoogleProvider function to call it with config
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET
         }),
 
-        CredentialProvider({
+        CredentialsProvider({
             name: 'Credentials',
             credentials: {
                 email: { label: 'Email', type: 'email' },
