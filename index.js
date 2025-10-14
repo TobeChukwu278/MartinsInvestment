@@ -9,6 +9,8 @@ const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 const { PrismaClient } = require('@prisma/client');
 
+const PORT = process.env.PORT || 3001;
+
 dotenv.config();
 const prisma = new PrismaClient();
 
@@ -20,6 +22,7 @@ app.use("/auth", ExpressAuth({ providers: [Google] }))
 
 app.get('/', (req, res) => {
     res.send('Hello World! This is the authentication server.');
+    console.log('route / was accessed');
 });
 
 
@@ -106,4 +109,4 @@ pingService();
 
 
 // start app from here
-app.listen(3001, () => console.log('Application server running on http://localhost:3001'));
+app.listen(PORT, () => console.log(`Application server running on port ${PORT}`));
