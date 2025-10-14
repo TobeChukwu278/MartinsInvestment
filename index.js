@@ -1,9 +1,7 @@
 const express = require('express');
 const { ExpressAuth } = require("@auth/express");
 const { auth } = require('@auth/core');
-// FIX: Correctly access the default export for the provider function
 const GoogleProvider = require("@auth/express/providers/google").default;
-// The value 'Google' from the original import still works for the ExpressAuth provider array
 const Google = require("@auth/express/providers/google");
 // const Credentials = require("@auth/express/providers/credentials");
 const CredentialsProvider = require('@auth/core/providers/credentials').default;
@@ -16,8 +14,13 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
-// Note: Google is used here, which is often an object containing the provider configuration
+
+// middleware to handle auth routes
 app.use("/auth", ExpressAuth({ providers: [Google] }))
+
+app.get('/', (req, res) => {
+    res.send('Hello World! This is the authentication server.');
+});
 
 
 // login route
@@ -76,6 +79,30 @@ app.post('/api/auth/signup', async (req, res) => {
         res.status(500).json({ error: 'Signup failed' });
     }
 });
+
+// pinger.js
+// const PING_URL = 'https://YOUR_RENDER_SERVICE_URL.onrender.com';
+const PING_URL = 'http://localhost:3001';
+const INTERVAL_MS = 50 * 1000; // 50 seconds
+
+async function pingService() {
+    try {
+        const response = await fetch(PING_URL);
+        if (response.ok) {
+            console.log(`Successfully pinged service at ${new Date().toISOString()}`);
+        } else {
+            console.error(`Ping failed with status: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Error during ping:', error.message);
+    }
+
+    // Schedule the next ping
+    setTimeout(pingService, INTERVAL_MS);
+}
+
+console.log(`Pinger started. Pinging ${PING_URL} every ${INTERVAL_MS / 1000} seconds.`);
+pingService();
 
 
 // start app from here
